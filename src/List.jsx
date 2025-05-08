@@ -10,7 +10,7 @@ function List() {
             state={{ country }}
             className="contents hover:bg-blue-950 cursor-pointer"
         >
-            <div className="flex items-center justify-start p-[10px] text-[#D2D5DA]"><img src={country.flag} className="h-10 w-16 rounded-[0.25rem]"/></div>
+            <div className="flex items-center justify-start p-[10px] text-[#D2D5DA]"><img src={new URL(country.flag, import.meta.url).href} className="h-10 w-16 rounded-[0.25rem]"/></div>
             <div className="flex items-center justify-start p-[10px] text-[#D2D5DA]">{country.name}</div>
             <div className="flex items-center justify-start p-[10px] text-[#D2D5DA]">{country.population.toLocaleString()}</div>
             <div className="flex items-center justify-start p-[10px] text-[#D2D5DA]">{country.area.toLocaleString()}</div>

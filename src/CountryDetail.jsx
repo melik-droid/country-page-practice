@@ -16,7 +16,7 @@ function CountryDetail() {
     return (
         <section className="border-[#282B30] border-solid border-1 rounded-xl mx-90 h-auto w-auto px-0 pt-2 relative -mt-8 z-20 bg-[#1e1e1e]">
             <div className="flex justify-center -mt-8">
-                <img src={country.flag} className="h-50 w-80 rounded-xl"/>
+                <img src={new URL(country.flag, import.meta.url).href} className="h-50 w-80 rounded-xl"/>
             </div>
             <div className="flex flex-col items-center mt-10">
                 <h1 className="text-[#D2D5DA] text-4xl font-semibold">{country.name}</h1>

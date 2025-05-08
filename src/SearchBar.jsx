@@ -11,7 +11,7 @@ function Search(){
             <form className="flex bg-[#282B30] font-medium rounded-2xl mr-6 w-88 py-3 px-2">
                 <input 
                     type="image"
-                    src="/src/resources/Search.svg"
+                    src={new URL('./resources/Search.svg', import.meta.url).href}
                     alt="search icon"
                     onClick={() => setCount(prevCount => prevCount+1)}
                     className="size-6 cursor-pointer"
