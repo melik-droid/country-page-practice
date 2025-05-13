@@ -58,7 +58,7 @@ function CountryDetail() {
             </div>
             <div className="flex flex-col items-center mt-10">
                 <h1 className="text-[#D2D5DA] text-4xl font-semibold">{country.name.common}</h1>
-                
+                <h2 className="text-[#D2D5DA] text-sm mt-2 font-light">{country.name.official}</h2>
                 <div className="flex flex-row my-10">
                     <div className="flex text-[#D2D5DA] items-center bg-[#282B30] rounded-xl h-12 font-semibold text-sm mx-5">
                         <div className="m-4">Population</div>

@@ -1,11 +1,18 @@
 import { Link } from "react-router-dom";
 import { allCountries } from "./resources/CountryList";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 
 function List() {
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const [visibleCount, setVisibleCount] = useState(20);
+  const loader = useRef(null);
+
+  const handleLoadMore = useCallback(() => {
+    setVisibleCount((prev) => prev + 20);
+  }, []);
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
@@ -31,7 +38,7 @@ function List() {
 
   console.log(countries);
 
-  const countryList = countries.map((country, index) => (
+  const countryList = countries.slice(0, visibleCount).map((country, index) => (
     <div
       key={index}
       className="group grid grid-cols-4 lg:grid-cols-5 hover:bg-[#3a3d42] transition-colors duration-200 cursor-pointer rounded-lg"
@@ -66,7 +73,7 @@ function List() {
   ));
 
   return (
-    <section className="col-start-4 col-span-9 row-start-2 w-full">
+    <section className="col-start-4 col-span-9 row-start-2 w-full ">
       
       {loading && (
         <div className="flex justify-center items-center p-4">
@@ -89,6 +96,16 @@ function List() {
         </div>
 
         <div className="grid">{countryList}</div>
+        {visibleCount < countries.length && (
+          <div className="flex justify-center p-4">
+            <button
+              onClick={handleLoadMore}
+              className="px-4 py-2 text-white bg-[#282b30] hover:bg-[#3a3d42] rounded-md transition-all transform duration-200 active:scale-95"
+            >
+              Load More
+            </button>
+          </div>
+        )}
         </>
       )}
 
