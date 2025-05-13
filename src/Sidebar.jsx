@@ -31,7 +31,7 @@ function Sidebar(){
                     <button
                         key={region}
                         onClick={() => toggleRegion(region)}
-                        className={`transform active:scale-95 transition-transform duration-100 px-4 py-2 rounded-xl mr-2 mb-3 font-light text-sm text-[#D2D5DA] hover:bg-blue-900 ${
+                        className={`transform active:scale-95 px-4 py-2 rounded-xl mr-2 mb-3 font-light text-sm text-[#D2D5DA] hover:bg-[#3a3d42] transition-colors duration-200 ${
                             activeRegions.includes(region)
                                 ? 'bg-[#282B30] border-[#282B30] border-1'
                                 : 'bg-transparent border-[#282B30] border-1'

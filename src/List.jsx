@@ -29,11 +29,12 @@ function List() {
       });
   }, []);
 
+  console.log(countries);
 
   const countryList = countries.map((country, index) => (
     <div
       key={index}
-      className="group grid grid-cols-4 lg:grid-cols-5 transition-all duration-200 hover:bg-blue-900 active:bg-blue-950 cursor-pointer rounded-lg"
+      className="group grid grid-cols-4 lg:grid-cols-5 hover:bg-[#3a3d42] transition-colors duration-200 cursor-pointer rounded-lg"
     >
       <Link
         key={index}
@@ -79,12 +80,12 @@ function List() {
       {/* Header Row */}
       {!loading && !error && (
         <>
-        <div className="grid grid-cols-4 lg:grid-cols-5 font-semibold border-b border-[#282B30] mb-2">
-            <div className="flex items-center justify-start p-4 text-[#D2D5DA]">Flag</div>
-            <div className="flex items-center justify-start p-4 text-[#D2D5DA]">Name</div>
-            <div className="flex items-center justify-start p-4 text-[#D2D5DA]">Population</div>
-            <div className="flex items-center justify-start p-4 text-[#D2D5DA]">Area (km²)</div>
-            <div className="hidden lg:flex items-center justify-start p-4 text-[#D2D5DA]">Region</div>
+        <div className="grid grid-cols-4 lg:grid-cols-5 font-semibold border-b border-[#282B30] mb-2 text-[#D2D5DA]">
+            <div className="flex items-center justify-start p-4 ">Flag</div>
+            <div className="flex items-center justify-start p-4 ">Name</div>
+            <div className="flex items-center justify-start p-4 ">Population</div>
+            <div className="flex items-center justify-start p-4 ">Area (km²)</div>
+            <div className="hidden lg:flex items-center justify-start p-4 ">Region</div>
         </div>
 
         <div className="grid">{countryList}</div>
